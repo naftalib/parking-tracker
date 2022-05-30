@@ -12,3 +12,15 @@ table tr td {
 table tr:nth-child(odd) {
   background: #f4f4f4;
 }
+
+#td-price-free{
+  color: rgb(190, 22, 22);
+  background-color:  rgb(209, 35, 35, 0.5);
+  font-weight: bold;
+}
+#td-price-24h{
+  color:  rgb(12, 78, 153);
+  background-color: rgb(68, 132, 206, 0.5);
+  font-size: large;
+  font-weight: bold;
+}
