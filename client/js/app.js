@@ -209,9 +209,11 @@ const entries = [
 
 ]
 
+let API = entries.map(entry=>entry)
+
 // mapping over JSON data to manipulate data and create a formatted array saved to a var called entryData.
 
-const entryData = entries.map(entry => {
+const entryData = API.map(entry => {
 
   // Using the DATE() method to configure correct date/time in/out display of time stamp entries
   
@@ -260,13 +262,13 @@ const entryData = entries.map(entry => {
   const tabelBody = document.querySelector("#tableBody")
   tableBody.innerHTML = entryData
 
-  const summaryDuration = entries.map(entry=>{
+  //Need math logic on array to display average between all entries
+
+  const summaryDuration = API.map(entry=>{
 
     let entryTime = Math.abs(entry.out-entry.in) / 36e5;
     const duration = entryTime.toFixed(1)
-  
     return duration
-
   })
 
   console.log(summaryDuration)
