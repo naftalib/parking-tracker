@@ -16,7 +16,7 @@ const entries = [
   },
   {
     "in":1648587780907,
-    "out":1648604220677,
+    "out":1648904220677,
     "license":"M4TM7F"
   },           
   {in: 1653822480403, out: 1653852133351, license: 'TGVSKU'},
@@ -24,7 +24,7 @@ const entries = [
   {in: 1653822540403, out: 1653842866626, license: 'K0ZCG6'},
   {in: 1653822540403, out: 1653829794089, license: 'H26SMU'},
   {in: 1653822600403, out: 1653851196700, license: 'PTMS10'},
-  {in: 1653822600403, out: 1653856655783, license: 'J0ZIXA'},
+  {in: 1653822600403, out: 1653896655783, license: 'J0ZIXA'},
   {in: 1653822660403, out: 1653851058566, license: 'HCNGNE'},
   {in: 1653822720403, out: 1653843890613, license: '30NTPZ'},
   {in: 1653822720403, out: 1653844323914, license: 'PM6Y8G'},
@@ -236,11 +236,11 @@ const entryData = entries.map(entry => {
   //or the $ price p/h using the ternary operator
     const price = duration <= 1 ? "FREE": 
      Math.ceil(duration * 2.99 * 100) / 100
-  
+
   // the priceTD variable returns the correctly foramtted td element according to "free"/1-24h and over 24h
-    const pricdTD = price === "FREE" ? `<td id="td-price-free">${price}</td>` :  
-    duration >23.9 ? `<td id="td-price-24h">${price}</td>` : 
-    `<td>${price}</td>`
+    const priceTD = price === "FREE" ? `<td id="td-price-free">${price}</td>` : 
+    duration >= 23.9 ? `<td id="td-price-24h">$ ${price}</td>` : 
+    `<td>$ ${price}</td>`
   
   //returning the HTML <tr> element with <td> elements populated with the pertinent values derived from the entryData array.
     return (
@@ -248,8 +248,8 @@ const entryData = entries.map(entry => {
       `
       <tr>
         <td>${entry.license}</td>
-        ${pricdTD}
-        <td>$ ${duration}</td>
+        ${priceTD}
+        <td>${duration} h</td>
         <td>${timeIn}</td>
         <td>${timeOut}</td>
       </tr>
@@ -259,6 +259,17 @@ const entryData = entries.map(entry => {
   
   const tabelBody = document.querySelector("#tableBody")
   tableBody.innerHTML = entryData
+
+  const summaryDuration = entries.map(entry=>{
+
+    let entryTime = Math.abs(entry.out-entry.in) / 36e5;
+    const duration = entryTime.toFixed(1)
+  
+    return duration
+
+  })
+
+  console.log(summaryDuration)
   
   //api call
     
