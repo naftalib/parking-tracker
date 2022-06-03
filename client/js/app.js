@@ -209,11 +209,9 @@ const entries = [
 
 ]
 
-let API = entries.map(entry=>entry)
-
 // mapping over JSON data to manipulate data and create a formatted array saved to a var called entryData.
 
-const entryData = API.map(entry => {
+const entryData = entries.map(entry => {
 
   // Using the DATE() method to configure correct date/time in/out display of time stamp entries
   
@@ -264,14 +262,18 @@ const entryData = API.map(entry => {
 
   //Need math logic on array to display average between all entries
 
-  const summaryDuration = API.map(entry=>{
+  const smryDrtn = entries.map(entry=>{
 
     let entryTime = Math.abs(entry.out-entry.in) / 36e5;
     const duration = entryTime.toFixed(1)
+    parseInt(duration)
     return duration
   })
+  // const sum = smryDrtn.reduce((a, b) => a + b, 0)
+  // const avg = (sum / smryDrtn.length)
 
-  console.log(summaryDuration)
+ const avgDrtn = smryDrtn.reduce((a,b) => (a+b)) / smryDrtn.length
+console.log(smryDrtn)
   
   //api call
     
