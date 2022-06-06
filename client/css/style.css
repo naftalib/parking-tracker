@@ -2,7 +2,6 @@ html,
 body {
   font-family: arial, sans-serif;
   display: flex;
-  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -31,19 +30,39 @@ table tr:nth-child(odd) {
 }
 
 .summary{
-  padding-left: 10rem;
-  margin-left: auto; 
-  margin-right: 0;
+  padding-left: 2rem;
 }
 
 .sum-box{
+  margin: 0;
   border: 1px solid black;
   border-radius: 6%;
   max-width: 420px;
   max-height: fit-content;
   padding: 10px;
+}
 
+.sum-box p{
+padding: 5px ;
+padding-left: 7px;
+font-weight:bolder;
 }
 .sum-el{
   display: flex;
+}
+/* .sum-el h4{
+  text-decoration: underline;
+} */
+
+#total{
+  background-color: aquamarine;
+}
+#free{
+  background-color: rgb(68, 132, 206, 0.5);
+}
+#_24{
+  background-color:  rgb(209, 35, 35, 0.5);
+}
+#avr{
+  background-color: rgb(0, 170, 28);
 }
