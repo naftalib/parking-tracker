@@ -317,14 +317,4 @@ const smry24 = entries.map(entry=>{
 .filter(entry=> entry > 23.9 ? true : false)
 
 document.querySelector("#_24").textContent = smry24.length
-
-console.log(smry24.length)
-
-  //api call
-    
-  //   fetch('http://localhost:4200/api/event/')
-  //   .then(res => res.json())
-  //   .then(entries => {
-  
-  
-  // })          
+         
