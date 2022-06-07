@@ -1,3 +1,5 @@
+//Dummy data-API mimic
+
 const entries = [
   {
       "in":1648587660907,
@@ -237,15 +239,18 @@ const entryData = entries.map(entry => {
   
   // the "price" variable returns either "free" for entries less than 1h
   //or the $ price p/h using the ternary operator
+  
     const price = duration <= 1 ? "FREE": 
      Math.ceil(duration * 2.99 * 100) / 100
 
   // the priceTD variable returns the correctly foramtted td element according to "free"/1-24h and over 24h
+    
     const priceTD = price === "FREE" ? `<td id="td-price-free">${price}</td>` : 
     duration >= 23.9 ? `<td id="td-price-24h">$ ${price}</td>` : 
     `<td>$ ${price}</td>`
   
   //returning the HTML <tr> element with <td> elements populated with the pertinent values derived from the entryData array.
+    
     return (
       
       `
@@ -282,11 +287,11 @@ const entryData = entries.map(entry => {
   
 document.querySelector('#avr').textContent = `${avgDrtn.toFixed(1)} h`
 
-// Average all entries
+// ------------------Average all entries--------------------
 
 document.querySelector("#total").textContent = entries.length
 
-// Average Free entries
+// ----------------Average Free entries----------------------
 
 //Filtered the array of total duration of each entry according to those less than 1 hour.
 
@@ -301,7 +306,7 @@ const smryFree = entries.map(entry=>{
 
 document.querySelector("#free").textContent = smryFree.length
 
-// Average entries over 24h
+// -------------Average entries over 24h-----------------
 
 //Same logic as with free entries
 // *** NOTE: Not worth refactoring the code with these two functions so as to apply 
@@ -317,4 +322,6 @@ const smry24 = entries.map(entry=>{
 .filter(entry=> entry > 23.9 ? true : false)
 
 document.querySelector("#_24").textContent = smry24.length
+
+//------------------------------end of App-------------------------------------------
          
