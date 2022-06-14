@@ -1,4 +1,4 @@
-# Paeking Tracker
+# Parking Tracker
 
 This app is a data table that recieved a JSON object containing parking entries by license plate and a time stamp for time in and time aout.
 
