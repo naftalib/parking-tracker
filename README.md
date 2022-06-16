@@ -1,4 +1,4 @@
-# Parking Tracker--------- live demo [here](https://naftalib.github.io/parking-tracker/) ----------------
+# Parking Tracker--------- [live demo here](https://naftalib.github.io/parking-tracker/) ----------------
 
 # About
 
